@@ -1,6 +1,14 @@
-# Boddy Psy React app #
+# Parse React Sample app #
 
-Boddy Psy prototype made with ReactJS and ParseReact
+Todo app made with ReactJS and ParseReact
+
+## What's inside ?
+- React (JSX)
+- Parse React
+- Gulp (browsersyn-browserify-etc.)
+- Sass
+- Test (using Jest)
+- Routing (using react-router)
 
 ## Setup
 
