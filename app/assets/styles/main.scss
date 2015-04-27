@@ -1,0 +1,216 @@
+/* Main.scss */
+
+body {
+  margin: 0;
+  font-family: "Helvetica-Nueue", sans-serif;
+  font-weight: lighter;
+  background: #F5F5F5;
+}
+
+/* NAVBAR */
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  color: white;
+  bottom: 0px;
+  z-index: 1000;
+  a {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    color: gray;
+    text-decoration: none;
+    &:hover{
+      cursor: pointer;
+    }
+  }}
+
+/* LOGIN */
+
+#login {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  .login-container {
+    width: 300px;
+    height: 200px;
+    background: white;
+    margin: auto;
+    margin-top: 150px;
+    text-align: center;
+    padding: 20px;
+    padding-top: 40px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    color: gray;
+  }
+  p {
+    font-size: 12px;
+  }
+  input {
+    border: 0;
+    outline:none;
+    box-shadow:none;
+    background: transparent;
+    border-bottom: 1px solid lightgray;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  .submit {
+    border: 0;
+    width: 100%;
+    height: 40px;
+    background: #19a6b5;
+    color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+/* TODOS */
+
+
+.todos {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  .title {
+    font-weight: 100;
+    text-align: center;
+    color: grey;
+  }
+  .todo-detail {
+    display: block;
+    position: fixed;
+    top:0px;
+    right: 0px;
+    height:100%;
+    width: 300px;
+    background: white;
+    padding-left: 20px;
+    padding-top: 20px;
+    border-left: 1px solid lightgrey;
+    .body {
+      font-size: 30px;
+    }
+    .close {
+      position: absolute;
+      left: 0px;
+      top:10px;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 0;
+      font-size: 15px;
+      color:grey;
+      text-decoration: none;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+    }
+  }
+  .todos-list {
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid lightgrey;
+    padding-bottom: 50px;
+    border-radius: 5px;
+    .todo-item {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      height:50px;
+      margin-top: 0px;
+      border-bottom: 1px solid lightgrey;
+      width: 100%;
+      &:hover {
+        cursor: pointer;
+      }
+      .body {
+        height: 20px;
+        color: #858585;
+        margin: 0;
+        margin-top: 17px;
+        width: 230px;
+        float: left;
+        vertical-align: middle;
+      }
+      .delete {
+        position: absolute;
+        right: 0px;
+        top:0px;
+        height: 100%;
+        background: transparent;
+        border: 0;
+        font-size: 15px;
+        color:grey;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.7;
+        }
+      }
+      .state {
+        background: transparent;
+        width: 26px;
+        height: 26px;
+        border: 1px solid lightgrey;
+        border-radius: 15px;
+        margin-top: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        float: left;
+        position: relative;
+        text-align: center;
+        .done {
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          left: 3px;
+          top: 3px;
+          border-radius: 9px;
+          background: #36d97a;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  .todo-create {
+    position: relative;
+    text-align: center;
+    height:40px;
+    padding: 0px;
+    input {
+      height: 100%;
+      width: 90%;
+      font-size: 15px;
+      border: 0;
+      outline:none;
+      box-shadow:none;
+      background: transparent;
+      color: grey;
+      font-weight: 100;
+      &:focus {
+        color: #606060;
+      }
+    }
+  }
+}
