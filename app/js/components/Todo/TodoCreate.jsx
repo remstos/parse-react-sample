@@ -29,7 +29,7 @@ var TodoCreate = React.createClass({
       <div className="todo-create">
           <input 
             type="text" 
-            placeholder="Something else to do..."
+            placeholder="Add something else to do..."
             ref="name"
             onKeyUp={this.onKeyUp}/>
       </div>

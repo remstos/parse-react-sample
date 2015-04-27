@@ -19,13 +19,25 @@ var Login = React.createClass({
     });
   },
   
+  onSignup: function() {
+    var email = this.refs.emailInput.getDOMNode().value;
+    var password = this.refs.passwordInput.getDOMNode().value;
+    var _this = this;
+    Parse.User.signUp(email, password).then(function(user) {
+      _this.context.router.replaceWith('/', {}, {});
+    }, function(error) {
+      console.log(error);
+    });
+  },
+  
   render: function() {
     return (
       <div id="login">
         <div className="login-container">
-        	<input type="text" ref="emailInput" placeholder="email"/>
-        	<input type="password" ref="passwordInput" placeholder="password"/>
-        	<button className="submit" onClick={this.onLogin}> Login </button>
+        	<input type="text" ref="emailInput" placeholder="Username"/>
+        	<input type="password" ref="passwordInput" placeholder="Password"/>
+        	<button className="submit login" onClick={this.onLogin}> Login </button>
+        	<button className="submit signup" onClick={this.onSignup}> Sign up </button>
           <p>Demo account: demo/demo</p>
       	</div>
       </div>

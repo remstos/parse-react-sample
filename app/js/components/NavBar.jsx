@@ -29,7 +29,7 @@ var NavBar = React.createClass({
   getLogoutNode: function() {
     if (Parse.User.current() === null) return null;
     return (
-      <a onClick={this.onLogout}> Logout </a>
+      <Link to="/" onClick={this.onLogout}> Logout </Link>
     );
   }
 });
