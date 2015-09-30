@@ -1,13 +1,13 @@
 var React = require('react');
-var Parse = require('parse').Parse;
+var Parse =   require('parse').Parse;
 var Router = require('react-router');
 
 var Login = React.createClass({
-  
+
   contextTypes: {
     router: React.PropTypes.func.isRequired
   },
-  
+
   onLogin: function() {
     var email = this.refs.emailInput.getDOMNode().value;
     var password = this.refs.passwordInput.getDOMNode().value;
@@ -18,7 +18,7 @@ var Login = React.createClass({
       console.log(error);
     });
   },
-  
+
   onSignup: function() {
     var email = this.refs.emailInput.getDOMNode().value;
     var password = this.refs.passwordInput.getDOMNode().value;
@@ -29,7 +29,7 @@ var Login = React.createClass({
       console.log(error);
     });
   },
-  
+
   render: function() {
     return (
       <div id="login">
@@ -37,8 +37,8 @@ var Login = React.createClass({
         	<input type="text" ref="emailInput" placeholder="Username"/>
         	<input type="password" ref="passwordInput" placeholder="Password"/>
         	<button className="submit login" onClick={this.onLogin}> Login </button>
-        	<button className="submit signup" onClick={this.onSignup}> Sign up </button>
-          <p>Demo account: demo/demo</p>
+        	<button className="submit signup" onClick={this.onSignup}> new user </button>
+          <p>Good!</p>
       	</div>
       </div>
     );

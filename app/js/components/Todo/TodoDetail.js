@@ -3,10 +3,10 @@ var PureRenderMixin = require('react/addons').addons.PureRenderMixin;
 var Router = require('react-router');
 var Link = Router.Link;
 
-TodoDetail = React.createClass({
-  
+var TodoDetail = React.createClass({
+
   mixins: [PureRenderMixin],
-  
+
   getDefaultProps: function() {
     return {
       todo: {}
@@ -17,7 +17,7 @@ TodoDetail = React.createClass({
     var todo = this.props.todo;
     return (
       <div className="todo-detail">
-        <Link 
+        <Link
           to="todos"
           className="close">
           x
@@ -28,7 +28,7 @@ TodoDetail = React.createClass({
       </div>
     );
   },
-  
+
 });
 
 module.exports = TodoDetail;

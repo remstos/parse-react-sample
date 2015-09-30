@@ -1,17 +1,17 @@
 var React = require('react');
 var _ = require('lodash');
-var Parse = require('parse').Parse;
+var Parse =   require('parse').Parse;
 var ParseReact = require('parse-react');
 
-var TodosList = require('../Todo/TodosList.jsx');
-var TodoDetail = require('../Todo/TodoDetail.jsx');
-var TodoCreate = require('../Todo/TodoCreate.jsx');
-var AuthRequired = require('../../mixins/AuthRequired.js');
+var TodosList = require('../Todo/TodosList');
+var TodoDetail = require('../Todo/TodoDetail');
+var TodoCreate = require('../Todo/TodoCreate');
+var AuthRequired = require('../../mixins/AuthRequired');
 
 var Todos = React.createClass({
-  
+
   mixins: [AuthRequired,ParseReact.Mixin],
-    
+
   observe: function() {
     var query = new Parse.Query("Todo");
     query.equalTo("user", Parse.User.current());
@@ -20,8 +20,8 @@ var Todos = React.createClass({
       todos: query,
     };
   },
-  
-  render: function() {    
+
+  render: function() {
     return (
       <div className="todos">
         <h1 className="title">ParseReact - Todos</h1>
@@ -31,7 +31,7 @@ var Todos = React.createClass({
       </div>
     );
   },
-  
+
   getTodoDetailNode: function() {
     var params = this.context.router.getCurrentParams();
     if (params.todoId === undefined) return null;
@@ -40,7 +40,7 @@ var Todos = React.createClass({
       <TodoDetail todo={currentTodo} />
     );
   },
-  
+
   getTodoCreateNode: function() {
     if (this.data.todos.length >= 100) return null;
     return (

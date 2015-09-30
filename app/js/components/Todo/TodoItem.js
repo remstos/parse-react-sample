@@ -1,22 +1,22 @@
 var React = require('react');
-var Parse = require('parse').Parse;
+var Parse =   require('parse').Parse;
 var ParseReact = require('parse-react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-TodoItem = React.createClass({
-  
+var TodoItem = React.createClass({
+
   getDefaultProps: function() {
     return {
       todo: {}
     }
   },
-  
+
   onDelete: function(e) {
     ParseReact.Mutation.Destroy(this.props.todo).dispatch();
     e.preventDefault();
   },
-  
+
   changeState: function(e) {
     var state = this.props.todo.done;
     ParseReact.Mutation.Set(this.props.todo, {
@@ -24,7 +24,7 @@ TodoItem = React.createClass({
     }).dispatch();
     e.preventDefault();
   },
-  
+
   render: function() {
     var todo = this.props.todo;
     var doneNode;
@@ -32,11 +32,11 @@ TodoItem = React.createClass({
       doneNode = <span className="done" />;
     }
     return (
-      <Link 
+      <Link
         className="todo-item"
         to="todo"
         params={{todoId:todo.id.objectId}}>
-        <button 
+        <button
           className="state"
           onClick={this.changeState}>
           {doneNode}
@@ -44,15 +44,15 @@ TodoItem = React.createClass({
       	<p className="body">
       	  {todo.name}
         </p>
-        <button 
-          className="delete" 
+        <button
+          className="delete"
           onClick={this.onDelete}>
           x
         </button>
       </Link>
     );
   },
-  
+
 
 });
 
