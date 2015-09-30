@@ -33,12 +33,6 @@ npm install
 
 #### Run locally
 
-    "clean": "rimraf dist",
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
-    "start": "node devServer.js",
-    "lint": "eslint app"
-
 ```
 npm run start
 ```
