@@ -1,40 +1,36 @@
-var React = require('react');
-var Parse =   require('parse').Parse;
-var ParseReact = require('parse-react');
-var Router = require('react-router');
-var Link = Router.Link;
+import React from "react"
+import Parse from "parse"
+import ParseReact from "parse-react"
+import { Link } from "react-router"
 
-var TodoCreate = React.createClass({
+export default class TodoCreate extends React.Component {
 
-  onCreate: function() {
-    var input = this.refs.name.getDOMNode();
+  onCreate() {
+    let input = this.refs.name.getDOMNode();
+
     if (input.value == "") return;
+
     ParseReact.Mutation.Create('Todo', {
       name: input.value,
       done: false,
       user: Parse.User.current().toPlainObject()
     }).dispatch();
-    input.value = "";
-  },
 
-  onKeyUp: function(e) {
-    if( e.keyCode == 13 ) {
+    input.value = "";
+  }
+
+  onKeyUp(e) {
+    if(e.keyCode == 13) {
       this.onCreate();
     }
-  },
-
-  render: function() {
-
-    return (
-      <div className="todo-create">
-          <input
-            type="text"
-            placeholder="Add something else to do..."
-            ref="name"
-            onKeyUp={this.onKeyUp}/>
-      </div>
-    );
   }
-});
 
-module.exports = TodoCreate;
+  render() {
+    return <div className="todo-create">
+      <input type="text"
+        placeholder="Add something else to do..."
+        ref="name"
+        onKeyUp={(e) => this.onKeyUp(e)}/>
+    </div>;
+  }
+}

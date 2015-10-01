@@ -1,59 +1,47 @@
-var React = require('react');
-var Parse =   require('parse').Parse;
-var ParseReact = require('parse-react');
-var Router = require('react-router');
-var Link = Router.Link;
+import React from "react"
+import Parse from "parse"
+import ParseReact from "parse-react"
 
-var TodoItem = React.createClass({
+import { Link } from "react-router"
 
-  getDefaultProps: function() {
+export default class TodoItem extends React.Component {
+  getDefaultProps() {
     return {
       todo: {}
     }
-  },
+  }
 
-  onDelete: function(e) {
+  onDelete(e) {
     ParseReact.Mutation.Destroy(this.props.todo).dispatch();
-    e.preventDefault();
-  },
 
-  changeState: function(e) {
-    var state = this.props.todo.done;
+    e.preventDefault();
+  }
+
+  changeState(e) {
     ParseReact.Mutation.Set(this.props.todo, {
-      done:!state
+      done: !this.props.todo.done
     }).dispatch();
-    e.preventDefault();
-  },
 
-  render: function() {
-    var todo = this.props.todo;
-    var doneNode;
-    if (this.props.todo.done) {
-      doneNode = <span className="done" />;
-    }
+    e.preventDefault();
+  }
+
+  render() {
+    let todo = this.props.todo;
+
     return (
-      <Link
-        className="todo-item"
+      <Link className="todo-item"
         to="todo"
-        params={{todoId:todo.id.objectId}}>
-        <button
-          className="state"
-          onClick={this.changeState}>
-          {doneNode}
+        params={{todoId: todo.id.objectId}}>
+        <button className="state"
+          onClick={(e) => this.changeState(e)}>
+          {todo.done ? <span className="done" /> : null}
         </button>
-      	<p className="body">
-      	  {todo.name}
-        </p>
-        <button
-          className="delete"
-          onClick={this.onDelete}>
+      	<p className="body">{todo.name}</p>
+        <button className="delete"
+          onClick={(e) => this.onDelete(e)}>
           x
         </button>
       </Link>
     );
-  },
-
-
-});
-
-module.exports = TodoItem;
+  }
+}

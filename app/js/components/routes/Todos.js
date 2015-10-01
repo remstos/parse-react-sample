@@ -1,52 +1,67 @@
-var React = require('react');
-var _ = require('lodash');
-var Parse =   require('parse').Parse;
-var ParseReact = require('parse-react');
+import Parse from "parse"
+// ParseReact sits on top of your Parse singleton
+import ParseReact from "parse-react"
+import React from "react"
+var ParseComponent = ParseReact.Component(React);
 
-var TodosList = require('../Todo/TodosList');
-var TodoDetail = require('../Todo/TodoDetail');
-var TodoCreate = require('../Todo/TodoCreate');
-var AuthRequired = require('../../mixins/AuthRequired');
 
-var Todos = React.createClass({
+import _ from "lodash"
 
-  mixins: [AuthRequired,ParseReact.Mixin],
+import TodosList from "../Todo/TodosList"
+import TodoDetail from "../Todo/TodoDetail"
+import TodoCreate from "../Todo/TodoCreate"
 
-  observe: function() {
-    var query = new Parse.Query("Todo");
+class Todos extends ParseComponent {
+  constructor(props) {
+    super(props);
+  }
+
+  observe() {
+    let query = new Parse.Query("Todo");
     query.equalTo("user", Parse.User.current());
     query.ascending("updatedAt");
     return {
       todos: query,
     };
-  },
-
-  render: function() {
-    return (
-      <div className="todos">
-        <h1 className="title">ParseReact - Todos</h1>
-      	<TodosList todos={this.data.todos} />
-      	{this.getTodoCreateNode()}
-      	{this.getTodoDetailNode()}
-      </div>
-    );
-  },
-
-  getTodoDetailNode: function() {
-    var params = this.context.router.getCurrentParams();
-    if (params.todoId === undefined) return null;
-    var currentTodo = _.find(this.data.todos, {objectId: params.todoId});
-    return (
-      <TodoDetail todo={currentTodo} />
-    );
-  },
-
-  getTodoCreateNode: function() {
-    if (this.data.todos.length >= 100) return null;
-    return (
-      <TodoCreate />
-    );
   }
-});
 
-module.exports = Todos;
+  render() {
+    if (!Parse.User.current()) {
+      this.context.router.transitionTo('login')
+      return null;
+    }
+
+    let params = this.context.router.getCurrentParams();
+
+    return <div className="todos">
+      <h1 className="title">ParseReact - Todos</h1>
+    	<TodosList todos={this.data.todos} />
+    	{this.getTodoCreateNode()}
+    	{params.todoId ? this.getTodoDetailNode() : null}
+    </div>;
+  }
+
+  getTodoDetailNode() {
+    return !_.isEmpty(this.data.todos) ? this._renderTodoDetail() : null
+  }
+
+  _renderTodoDetail() {
+    return <TodoDetail todo={this._getTodoDetail()} />;
+  }
+
+  _getTodoDetail() {
+    let params = this.context.router.getCurrentParams();
+
+    return _.find(this.data.todos, {objectId: params.todoId});
+  }
+
+  getTodoCreateNode() {
+    return <TodoCreate />
+  }
+}
+
+Todos.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+export default Todos;

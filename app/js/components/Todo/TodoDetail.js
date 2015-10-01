@@ -1,34 +1,26 @@
-var React = require('react');
-var PureRenderMixin = require('react/addons').addons.PureRenderMixin;
-var Router = require('react-router');
-var Link = Router.Link;
+import React from "react"
+import { Link } from "react-router"
+import {PureRenderMixin} from "react"
 
-var TodoDetail = React.createClass({
 
-  mixins: [PureRenderMixin],
-
-  getDefaultProps: function() {
+class TodoDetail extends React.Component {
+  getDefaultProps() {
     return {
       todo: {}
     }
-  },
+  }
 
-  render: function() {
-    var todo = this.props.todo;
-    return (
-      <div className="todo-detail">
-        <Link
-          to="todos"
-          className="close">
-          x
-        </Link>
-      	<p className="body">
-          {todo.name}
-        </p>
-      </div>
-    );
-  },
+  render() {
+    return <div className="todo-detail">
+      <Link to="todos"
+        className="close">
+        x
+      </Link>
+    	<p className="body">
+        {this.props.todo.name}
+      </p>
+    </div>;
+  }
+}
 
-});
-
-module.exports = TodoDetail;
+export default TodoDetail;

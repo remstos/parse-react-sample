@@ -1,32 +1,29 @@
-var React = require('react');
-var TodoItem = require('./TodoItem.js');
+import React from "react"
+import TodoItem from "./TodoItem.js"
 
-var TodosList = React.createClass({
+export default class TodosList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       todos: []
     }
-  },
-
-  render: function() {
-    return (
-      <div className="todos-list">
-      	{this.getTodoNodes()}
-      </div>
-    );
-  },
-
-  getTodoNodes: function () {
-    return this.props.todos.map(function(todo){
-      return (
-        <TodoItem
-          key={todo.id.objectId}
-          todo={todo}
-        />
-      );
-    }.bind(this));
   }
-});
 
-module.exports = TodosList;
+  render() {
+    return <div className="todos-list">
+    	{this.getTodoNodes()}
+    </div>;
+  }
+
+  getTodoNodes() {
+    return this.props.todos.map((todo) => {
+      return <TodoItem
+        key={todo.id.objectId}
+        todo={todo}
+      />;
+    });
+  }
+}

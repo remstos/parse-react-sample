@@ -1,19 +1,12 @@
-var React = require('react');
-var Router = require('react-router');
-var RouteHandler = Router.RouteHandler;
-var NavBar = require('./NavBar');
+import React from "react"
+import { RouteHandler } from "react-router";
+import NavBar from "./NavBar"
 
-var App = React.createClass({
-
-  render: function() {
-
-    return (
-      <div>
-        <NavBar/>
-        <RouteHandler />
-      </div>
-    );
+export default class App extends React.Component{
+  render() {
+    return <div>
+      <NavBar/>
+      <RouteHandler />
+    </div>;
   }
-});
-
-module.exports = App;
+};
