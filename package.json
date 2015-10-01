@@ -16,6 +16,7 @@
     "html-webpack-plugin": "^1.6.1",
     "less": "^2.5.3",
     "less-loader": "^2.2.1",
+    "precommit-hook": "^3.0.0",
     "react-tools": "^0.13.2",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
@@ -41,6 +42,6 @@
     "lint": "eslint app"
   },
   "pre-commit": [
-    "npm run lint"
+    "lint"
   ]
 }
