@@ -1,17 +1,7 @@
 import React from "react"
 import TodoItem from "./TodoItem.js"
 
-export default class TodosList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  getDefaultProps() {
-    return {
-      todos: []
-    }
-  }
-
+class TodosList extends React.Component {
   render() {
     return <div className="todos-list">
     	{this.getTodoNodes()}
@@ -20,10 +10,13 @@ export default class TodosList extends React.Component {
 
   getTodoNodes() {
     return this.props.todos.map((todo) => {
-      return <TodoItem
-        key={todo.id.objectId}
-        todo={todo}
-      />;
+      return <TodoItem key={todo.id.objectId} todo={todo}/>;
     });
   }
 }
+
+TodosList.defaultProps = {
+  todos: []
+};
+
+export default TodosList

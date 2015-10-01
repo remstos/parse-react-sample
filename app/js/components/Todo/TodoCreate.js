@@ -4,7 +4,6 @@ import ParseReact from "parse-react"
 import { Link } from "react-router"
 
 export default class TodoCreate extends React.Component {
-
   onCreate() {
     let input = this.refs.name.getDOMNode();
 

@@ -4,13 +4,7 @@ import ParseReact from "parse-react"
 
 import { Link } from "react-router"
 
-export default class TodoItem extends React.Component {
-  getDefaultProps() {
-    return {
-      todo: {}
-    }
-  }
-
+class TodoItem extends React.Component {
   onDelete(e) {
     ParseReact.Mutation.Destroy(this.props.todo).dispatch();
 
@@ -45,3 +39,9 @@ export default class TodoItem extends React.Component {
     );
   }
 }
+
+TodoItem.defaultProps = {
+  todo: {}
+}
+
+export default TodoItem
