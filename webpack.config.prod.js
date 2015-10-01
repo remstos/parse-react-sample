@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var packager = require('./package.json');
 
 module.exports = {
   devtool: 'source-map',
@@ -33,7 +34,10 @@ module.exports = {
         warnings: false
       }
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'app/htdocs/index.html',
+      description: packager.description
+    }),
     new ExtractTextPlugin('[name].css')
   ]
 };

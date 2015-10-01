@@ -1,6 +1,7 @@
 {
   "name": "parse-react-sample",
   "version": "0.0.1",
+  "description": "Todo app made with ReactJS and ParseReact",
   "browser": {},
   "scripts": {
     "clean": "rimraf dist",
