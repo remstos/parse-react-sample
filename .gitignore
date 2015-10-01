@@ -6,7 +6,7 @@
 Thumbs.db
 ehthumbs.db
 
-dist/*
+dist/
 
 node_modules/
 bower_components/
