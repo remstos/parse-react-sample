@@ -26,8 +26,7 @@ class Todos extends ParseComponent {
 
   render() {
     if (!Parse.User.current()) {
-      this.context.router.transitionTo('login')
-      return null;
+      this.context.router.transitionTo("login");
     }
 
     let params = this.context.router.getCurrentParams();

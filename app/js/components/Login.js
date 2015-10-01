@@ -8,7 +8,7 @@ class Login extends React.Component {
     let password = this.refs.passwordInput.getDOMNode().value;
 
     Parse.User.logIn(email, password).then((user) => {
-      this.context.router.replaceWith('/', {}, {});
+      this.context.router.replaceWith("/", {}, {});
     }, (error) => {
       console.log(error);
     });
@@ -19,7 +19,7 @@ class Login extends React.Component {
     let password = this.refs.passwordInput.getDOMNode().value;
 
     Parse.User.signUp(email, password).then((user) => {
-      this.context.router.replaceWith('/', {}, {});
+      this.context.router.replaceWith("/", {}, {});
     }, (error) => {
       console.log(error);
     });

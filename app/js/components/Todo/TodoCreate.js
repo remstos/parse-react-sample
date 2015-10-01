@@ -9,7 +9,7 @@ class TodoCreate extends React.Component {
 
     if (input.value == "") return;
 
-    ParseReact.Mutation.Create('Todo', {
+    ParseReact.Mutation.Create("Todo", {
       name: input.value,
       done: false,
       user: Parse.User.current().toPlainObject()
