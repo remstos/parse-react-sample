@@ -85,7 +85,6 @@ body {
 
 /* TODOS */
 
-
 .todos {
   width: 300px;
   margin: 0 auto;
@@ -133,8 +132,7 @@ body {
     margin: 0 auto;
     background: white;
     border: 1px solid lightgrey;
-    padding-bottom: 50px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     .todo-item {
       position: relative;
       display: block;
@@ -199,9 +197,14 @@ body {
 
   .todo-create {
     position: relative;
+    width: 100%;
     text-align: center;
     height:40px;
     padding: 0px;
+    background: white;
+    border: 1px solid lightgrey;
+    border-radius: 0px 0px 5px 5px;
+    margin-top: -2px;
     input {
       height: 100%;
       width: 90%;
