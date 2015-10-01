@@ -19,4 +19,4 @@ TodosList.defaultProps = {
   todos: []
 };
 
-export default TodosList
+export default TodosList;

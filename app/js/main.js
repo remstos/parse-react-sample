@@ -1,10 +1,8 @@
 import React from "react"
 import Parse from "parse"
 
-let PARSE_APP_ID = "YAWhqG3sisjPwufe6loLW9UdapBU0DzxQqPkBuP6";
-let PARSE_JS_KEY = "DxSg3zuRgcjkpcLSEzaLfcqidGvlVQkiCU7OwOt4";
-// var PARSE_APP_ID = "s6CWs4ntdmIZgrQ0MfDT02DgRKTp4q3InQHUA77U";
-// var PARSE_JS_KEY = "F9rFXoA9svREjJOfxoFedVUBdhqWQBOZtszuiEK4";
+let PARSE_APP_ID = "s6CWs4ntdmIZgrQ0MfDT02DgRKTp4q3InQHUA77U";
+let PARSE_JS_KEY = "F9rFXoA9svREjJOfxoFedVUBdhqWQBOZtszuiEK4";
 Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY);
 
 /* ROUTES */

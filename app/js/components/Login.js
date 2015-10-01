@@ -4,8 +4,8 @@ import Router from "react-router"
 
 class Login extends React.Component {
   onLogin() {
-    var email = this.refs.emailInput.getDOMNode().value;
-    var password = this.refs.passwordInput.getDOMNode().value;
+    let email = this.refs.emailInput.getDOMNode().value;
+    let password = this.refs.passwordInput.getDOMNode().value;
 
     Parse.User.logIn(email, password).then((user) => {
       this.context.router.replaceWith('/', {}, {});
@@ -15,8 +15,8 @@ class Login extends React.Component {
   }
 
   onSignup() {
-    var email = this.refs.emailInput.getDOMNode().value;
-    var password = this.refs.passwordInput.getDOMNode().value;
+    let email = this.refs.emailInput.getDOMNode().value;
+    let password = this.refs.passwordInput.getDOMNode().value;
 
     Parse.User.signUp(email, password).then((user) => {
       this.context.router.replaceWith('/', {}, {});
@@ -33,7 +33,7 @@ class Login extends React.Component {
         	<input type="password" ref="passwordInput" placeholder="Password"/>
         	<button className="submit login" onClick={() => this.onLogin()}> Login </button>
         	<button className="submit signup" onClick={() => this.onSignup()}> new user </button>
-          <p>Good!</p>
+          <p>Demo account: demo/demo</p>
       	</div>
       </div>
     );

@@ -22,21 +22,19 @@ class TodoItem extends React.Component {
   render() {
     let todo = this.props.todo;
 
-    return (
-      <Link className="todo-item"
-        to="todo"
-        params={{todoId: todo.id.objectId}}>
-        <button className="state"
-          onClick={(e) => this.changeState(e)}>
-          {todo.done ? <span className="done" /> : null}
-        </button>
-      	<p className="body">{todo.name}</p>
-        <button className="delete"
-          onClick={(e) => this.onDelete(e)}>
-          x
-        </button>
-      </Link>
-    );
+    return <Link className="todo-item"
+      to="todo"
+      params={{todoId: todo.id.objectId}}>
+      <button className="state"
+        onClick={(e) => this.changeState(e)}>
+        {todo.done ? <span className="done" /> : null}
+      </button>
+    	<p className="body">{todo.name}</p>
+      <button className="delete"
+        onClick={(e) => this.onDelete(e)}>
+        x
+      </button>
+    </Link>;
   }
 }
 
@@ -44,4 +42,4 @@ TodoItem.defaultProps = {
   todo: {}
 }
 
-export default TodoItem
+export default TodoItem;

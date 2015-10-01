@@ -3,7 +3,7 @@ import Parse from "parse"
 import ParseReact from "parse-react"
 import { Link } from "react-router"
 
-export default class TodoCreate extends React.Component {
+class TodoCreate extends React.Component {
   onCreate() {
     let input = this.refs.name.getDOMNode();
 
@@ -33,3 +33,5 @@ export default class TodoCreate extends React.Component {
     </div>;
   }
 }
+
+export default TodoCreate;
