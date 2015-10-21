@@ -12,6 +12,11 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+  resolve: {
+    alias: {
+      images: path.join(__dirname, '/app/assets/images')
+    }
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
@@ -32,6 +37,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: "style!css"
+    }, {
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+      loader: 'file?name=images/[hash].[ext]'
     }]
   }
 };
