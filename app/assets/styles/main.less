@@ -137,27 +137,28 @@ body {
       position: relative;
       display: block;
       text-decoration: none;
-      height:50px;
+      overflow: hidden;
+      min-height:50px;
       margin-top: 0px;
+      padding: 10px;
+      box-sizing: border-box;
       border-bottom: 1px solid lightgrey;
       width: 100%;
       &:hover {
         cursor: pointer;
       }
       .body {
-        height: 20px;
+        line-height: 26px;
         color: #858585;
         margin: 0;
-        margin-top: 17px;
-        width: 230px;
-        float: left;
-        vertical-align: middle;
+        padding-right: 20px;
+        // state button width + spacing
+        padding-left: calc(26px + 10px);
       }
       .delete {
         position: absolute;
         right: 0px;
-        top:0px;
-        height: 100%;
+        top: 10px;
         background: transparent;
         border: 0;
         font-size: 15px;
@@ -173,9 +174,6 @@ body {
         height: 26px;
         border: 1px solid lightgrey;
         border-radius: 15px;
-        margin-top: 12px;
-        margin-left: 10px;
-        margin-right: 10px;
         float: left;
         position: relative;
         text-align: center;
