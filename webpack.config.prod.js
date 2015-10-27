@@ -14,6 +14,11 @@ module.exports = {
     filename: '[name].js',
     publicPath: './'
   },
+  resolve: {
+    alias: {
+      images: path.join(__dirname, '/app/assets/images')
+    }
+  },
   module: {
     loaders: [{
       test: /\.js$/,
@@ -25,6 +30,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+    }, {
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+      loader: 'file?name=images/[hash].[ext]'
     }]
   },
   plugins: [
