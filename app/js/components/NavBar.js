@@ -3,8 +3,10 @@ import Parse from "parse"
 import {Link} from "react-router"
 
 class NavBar extends React.Component {
+
   onLogout() {
     Parse.User.logOut();
+    this.props.history.replace("/login");
   }
 
   render() {
@@ -14,20 +16,17 @@ class NavBar extends React.Component {
           target="_blank">
           Github
         </a>
-        {Parse.User.current() ? this.getLogoutNode() : null}
+        {this.renderLogout()}
       </div>
     );
   }
 
-  getLogoutNode() {
-    return <Link to="/" onClick={this.onLogout}>
+  renderLogout() {
+    if (!Parse.User.current()) { return false; }
+    return <Link to="/" onClick={this.onLogout.bind(this)}>
       Logout
     </Link>;
   }
 }
-
-NavBar.contextTypes = {
-  router: React.PropTypes.func.isRequired
-};
 
 export default NavBar;

@@ -2,6 +2,11 @@ import React from "react"
 import TodoItem from "./TodoItem.js"
 
 class TodosList extends React.Component {
+
+  static propTypes = {
+      todos: React.PropTypes.array.isRequired,
+  }
+
   render() {
     return <div className="todos-list">
     	{this.getTodoNodes()}
@@ -14,9 +19,5 @@ class TodosList extends React.Component {
     });
   }
 }
-
-TodosList.defaultProps = {
-  todos: []
-};
 
 export default TodosList;

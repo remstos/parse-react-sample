@@ -1,45 +1,39 @@
 import React from "react"
 import Parse from "parse"
 import ParseReact from "parse-react"
-
 import { Link } from "react-router"
 
 class TodoItem extends React.Component {
-  onDelete(e) {
-    ParseReact.Mutation.Destroy(this.props.todo).dispatch();
 
-    e.preventDefault();
-  }
-
-  changeState(e) {
-    ParseReact.Mutation.Set(this.props.todo, {
-      done: !this.props.todo.done
-    }).dispatch();
-
-    e.preventDefault();
+  static propTypes = {
+    todo: React.PropTypes.object.isRequired,
   }
 
   render() {
     let todo = this.props.todo;
 
-    return <Link className="todo-item"
-      to="todo"
-      params={{todoId: todo.id.objectId}}>
+    return <Link className="todo-item" to={`todo/${todo.id.objectId}`}>
       <button className="state"
-        onClick={(e) => this.changeState(e)}>
+        onClick={this.onChangeState.bind(this)}>
         {todo.done ? <span className="done" /> : null}
       </button>
     	<p className="body">{todo.name}</p>
       <button className="delete"
-        onClick={(e) => this.onDelete(e)}>
-        x
+        onClick={this.onDelete.bind(this)}>
+        <img className="trash" src={require("images/trash.png")} />
       </button>
     </Link>;
   }
-}
 
-TodoItem.defaultProps = {
-  todo: {}
+  onDelete() {
+    ParseReact.Mutation.Destroy(this.props.todo).dispatch();
+  }
+
+  onChangeState() {
+    ParseReact.Mutation.Set(this.props.todo, {
+      done: !this.props.todo.done
+    }).dispatch();
+  }
 }
 
 export default TodoItem;

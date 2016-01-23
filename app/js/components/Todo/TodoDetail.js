@@ -1,8 +1,12 @@
 import React from "react"
 import { Link } from "react-router"
-import {PureRenderMixin} from "react"
 
 class TodoDetail extends React.Component {
+
+  static propTypes = {
+    todo: React.PropTypes.object.isRequired,
+  }
+
   render() {
     return <div className="todo-detail">
       <Link to="todos"
@@ -15,10 +19,5 @@ class TodoDetail extends React.Component {
     </div>;
   }
 }
-
-TodoDetail.defaultProps = {
-  todo: {}
-}
-
 
 export default TodoDetail;

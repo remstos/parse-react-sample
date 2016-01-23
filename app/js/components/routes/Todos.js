@@ -1,9 +1,7 @@
 import Parse from "parse"
-// ParseReact sits on top of your Parse singleton
 import ParseReact from "parse-react"
 import React from "react"
-var ParseComponent = ParseReact.Component(React);
-
+const ParseComponent = ParseReact.Component(React);
 
 import _ from "lodash"
 import TodosList from "../Todo/TodosList"
@@ -25,41 +23,20 @@ class Todos extends ParseComponent {
   }
 
   render() {
-    if (!Parse.User.current()) {
-      this.context.router.transitionTo("login");
-    }
-
-    let params = this.context.router.getCurrentParams();
-
     return <div className="todos">
       <h1 className="title">ParseReact - Todos</h1>
     	<TodosList todos={this.data.todos} />
-    	{this.getTodoCreateNode()}
-    	{params.todoId ? this.getTodoDetailNode() : null}
+    	<TodoCreate />
+    	{this.renderDetail()}
     </div>;
   }
 
-  getTodoDetailNode() {
-    return !_.isEmpty(this.data.todos) ? this._renderTodoDetail() : null
-  }
-
-  _renderTodoDetail() {
-    return <TodoDetail todo={this._getTodoDetail()} />;
-  }
-
-  _getTodoDetail() {
-    let params = this.context.router.getCurrentParams();
-
-    return _.find(this.data.todos, {objectId: params.todoId});
-  }
-
-  getTodoCreateNode() {
-    return <TodoCreate />
+  renderDetail() {
+    if (!this.props.params.todoId || this.data.todos.length == 0) { return false; }
+    const todo = _.find(this.data.todos, {objectId: this.props.params.todoId});
+    if (!todo) { return false; }
+    return <TodoDetail todo={todo} />;
   }
 }
-
-Todos.contextTypes = {
-  router: React.PropTypes.func.isRequired
-};
 
 export default Todos;

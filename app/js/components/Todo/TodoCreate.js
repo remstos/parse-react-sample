@@ -5,7 +5,7 @@ import { Link } from "react-router"
 
 class TodoCreate extends React.Component {
   onCreate() {
-    let input = this.refs.name.getDOMNode();
+    let input = this.refs.name;
 
     if (input.value == "") return;
 
