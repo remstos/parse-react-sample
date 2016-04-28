@@ -4,7 +4,11 @@ import TodoItem from './TodoItem.js'
 class TodosList extends React.Component {
 
   static propTypes = {
-    todos: React.PropTypes.array.isRequired,
+    todos: React.PropTypes.array,
+  }
+
+  static defaultProps = {
+    todos: [],
   }
 
   render() {

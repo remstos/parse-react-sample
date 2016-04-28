@@ -2,6 +2,7 @@ import Parse from 'parse'
 import ParseReact from 'parse-react'
 import React from 'react'
 const ParseComponent = ParseReact.Component(React)
+mixins: [ParseReact.Mixin]
 
 import _ from 'lodash'
 import TodosList from './TodosList'
@@ -11,9 +12,13 @@ import TodoCreate from './TodoCreate'
 class Todos extends ParseComponent {
 
   observe() {
+    console.log('observing')
     const query = new Parse.Query('Todo')
-    query.equalTo('user', Parse.User.current())
+    // query.equalTo('user', Parse.User.current())
     query.ascending('updatedAt')
+    query.find().then(hello => {
+      console.log(hello)
+    })
     return {
       todos: query,
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Parse from 'parse'
 import ReactDOM from 'react-dom'
-import Router, {Route, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 
 const PARSE_APP_ID = 's6CWs4ntdmIZgrQ0MfDT02DgRKTp4q3InQHUA77U'
 const PARSE_JS_KEY = 'F9rFXoA9svREjJOfxoFedVUBdhqWQBOZtszuiEK4'
@@ -17,7 +17,7 @@ require('./../assets/styles/main.less')
 
 const loginRequired = (nextState, replace) => {
   if (!Parse.User.current()) {
-    replace(null,'/login','/')
+    replace('/login')
   }
 }
 

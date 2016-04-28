@@ -13,15 +13,6 @@ Todo app made with ReactJS and ParseReact
 - [Parse React](https://github.com/ParsePlatform/ParseReact)
 - Sass or Less
 - [Eslint](http://eslint.org/)
-- Unit testing (right now nothing but it will be the following):
-  - [ ] [Mocha](http://mochajs.org/) - testing framework
-  - [ ] [Chai](http://chaijs.com) - assertion library
-  - [ ] [Sinon](http://sinonjs.org) - mocking library
-  - [ ] [Karma](http://karma-runner.github.io/0.12/index.html) - test runner
-  - [ ] [PhantomJS](http://phantomjs.org/) - headless WebKit
-  - [ ] [Istanbul](http://gotwarlost.github.io/istanbul/) - code coverage
-- [ ] Visual testing
-  - _tbd_
 - [React Router](https://github.com/rackt/react-router)
 
 ## Setup
