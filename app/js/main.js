@@ -17,7 +17,7 @@ require('./../assets/styles/main.less')
 
 const loginRequired = (nextState, replace) => {
   if (!Parse.User.current()) {
-    replace('/login')
+    replace(null,'/login','/')
   }
 }
 
