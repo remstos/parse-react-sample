@@ -21,7 +21,15 @@
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.16.0",
-    "style-loader": "^0.13.1"
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2",
+    "less": "^2.3.1",
+    "less-loader": "^2.2.3",
+    "redbox-react": "^1.2.10",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4"
   },
   "dependencies": {
     "history": "^2.1.1",
